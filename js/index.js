@@ -42,10 +42,17 @@ myConvertSrting = arrayFromString(myString)
 // в противном случае возвращает строку "Неверный тип данных"
 // Вызовите функцию
 
+//Вариант №1
 function getMyDateTime(myInput){
 	var tempDate = new Date
 	if (isNaN(myInput)) {return "Неверный тип данных"}  
 	return (String(tempDate.getDate()).length == 1 ? "0"+ tempDate.getDate() : tempDate.getDate()) +
 	"."+ (String(tempDate.getMonth()).length == 1 ? "0"+ tempDate.getMonth() : tempDate.getMonth()) +
 	"."+tempDate.getFullYear()+", "+tempDate.getHours()+":"+tempDate.getMinutes()+":"+tempDate.getSeconds()
+}
+
+//Вариант №2
+function getMyDateTime(myInput){
+	var tempDate = new Date
+	return isNaN(myInput) ? "Неверный тип данных" : tempDate.toLocaleString()
 }
